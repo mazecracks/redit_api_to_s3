@@ -1,0 +1,8 @@
+make virtual env - python -m venv venv
+activate venv - source venv/bin/activate
+deactivate - deactivate
+
+
+check airflow errors -
+docker compose ps
+docker compose logs --tail=200 airflow-apiserver

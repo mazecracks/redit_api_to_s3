@@ -1,0 +1,85 @@
+--progress is a global compose flag, better use `docker compose --progress xx build ...
+#1 [internal] load local bake definitions
+#1 reading from stdin 746B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 484B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/apache/airflow:3.1.4
+#3 DONE 0.0s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [1/4] FROM docker.io/apache/airflow:3.1.4@sha256:d7b30acb2823ce373db581f2f2b52a011a839e9b9fd09edbd92a1757a75eb57d
+#5 resolve docker.io/apache/airflow:3.1.4@sha256:d7b30acb2823ce373db581f2f2b52a011a839e9b9fd09edbd92a1757a75eb57d done
+#5 CACHED
+
+#6 [internal] load build context
+#6 transferring context: 105B done
+#6 DONE 0.0s
+
+#7 [2/4] COPY requirements.txt /requirements.txt
+#7 DONE 0.0s
+
+#8 [3/4] RUN chown airflow:0 /requirements.txt && chmod 644 /requirements.txt
+#8 DONE 0.1s
+
+#9 [4/4] RUN pip install --no-cache-dir     --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-3.1.4/constraints-3.12.txt"     -r /requirements.txt
+#9 0.713 Defaulting to user installation because normal site-packages is not writeable
+#9 0.993 Requirement already satisfied: python-dotenv in /home/airflow/.local/lib/python3.12/site-packages (from -r /requirements.txt (line 2)) (1.2.1)
+#9 0.993 Requirement already satisfied: requests in /home/airflow/.local/lib/python3.12/site-packages (from -r /requirements.txt (line 3)) (2.32.5)
+#9 0.993 Requirement already satisfied: urllib3 in /home/airflow/.local/lib/python3.12/site-packages (from -r /requirements.txt (line 4)) (2.5.0)
+#9 0.994 Requirement already satisfied: pandas in /home/airflow/.local/lib/python3.12/site-packages (from -r /requirements.txt (line 5)) (2.1.4)
+#9 1.136 Collecting dask (from -r /requirements.txt (line 6))
+#9 1.270   Downloading dask-2026.1.1-py3-none-any.whl.metadata (3.8 kB)
+#9 1.300 Collecting loguru (from -r /requirements.txt (line 7))
+#9 1.321   Downloading loguru-0.7.3-py3-none-any.whl.metadata (22 kB)
+#9 1.336 Requirement already satisfied: boto3 in /home/airflow/.local/lib/python3.12/site-packages (from -r /requirements.txt (line 8)) (1.41.5)
+#9 1.336 Requirement already satisfied: apache-airflow-providers-http in /home/airflow/.local/lib/python3.12/site-packages (from -r /requirements.txt (line 11)) (5.6.0)
+#9 1.337 Requirement already satisfied: apache-airflow-providers-postgres in /home/airflow/.local/lib/python3.12/site-packages (from -r /requirements.txt (line 12)) (6.5.0)
+#9 1.337 Requirement already satisfied: apache-airflow-providers-smtp in /home/airflow/.local/lib/python3.12/site-packages (from -r /requirements.txt (line 13)) (2.4.0)
+#9 1.425 Collecting confluent-kafka (from -r /requirements.txt (line 14))
+#9 1.446   Downloading confluent_kafka-2.12.2-cp312-cp312-manylinux_2_28_aarch64.whl.metadata (31 kB)
+#9 1.510 ERROR: Cannot install aiobotocore==2.7.0 because these package versions have conflicting dependencies.
+#9 1.510 
+#9 1.510 The conflict is caused by:
+#9 1.510     The user requested aiobotocore==2.7.0
+#9 1.510     The user requested (constraint) aiobotocore==2.26.0
+#9 1.510 
+#9 1.510 Additionally, some packages in these conflicts have no matching distributions available for your environment:
+#9 1.510     aiobotocore
+#9 1.510 
+#9 1.510 To fix this you could try to:
+#9 1.510 1. loosen the range of package versions you've specified
+#9 1.510 2. remove package versions to allow pip to attempt to solve the dependency conflict
+#9 1.510 
+#9 1.641 ERROR: ResolutionImpossible: for help visit https://pip.pypa.io/en/latest/topics/dependency-resolution/#dealing-with-dependency-conflicts
+#9 ERROR: process "/bin/bash -o pipefail -o errexit -o nounset -o nolog -c pip install --no-cache-dir     --constraint \"${CONSTRAINT_URL}\"     -r /requirements.txt" did not complete successfully: exit code: 1
+------
+ > [4/4] RUN pip install --no-cache-dir     --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-3.1.4/constraints-3.12.txt"     -r /requirements.txt:
+1.510     The user requested (constraint) aiobotocore==2.26.0
+1.510 
+1.510 Additionally, some packages in these conflicts have no matching distributions available for your environment:
+1.510     aiobotocore
+1.510 
+1.510 To fix this you could try to:
+1.510 1. loosen the range of package versions you've specified
+1.510 2. remove package versions to allow pip to attempt to solve the dependency conflict
+1.510 
+1.641 ERROR: ResolutionImpossible: for help visit https://pip.pypa.io/en/latest/topics/dependency-resolution/#dealing-with-dependency-conflicts
+------
+Dockerfile:13
+--------------------
+  12 |     
+  13 | >>> RUN pip install --no-cache-dir \
+  14 | >>>     --constraint "${CONSTRAINT_URL}" \
+  15 | >>>     -r /requirements.txt
+  16 |     
+--------------------
+failed to solve: process "/bin/bash -o pipefail -o errexit -o nounset -o nolog -c pip install --no-cache-dir     --constraint \"${CONSTRAINT_URL}\"     -r /requirements.txt" did not complete successfully: exit code: 1
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/jyi4zve1d1nvjsbg1i5hi3j72

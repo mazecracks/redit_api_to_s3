@@ -1,0 +1,6 @@
+{"timestamp":"2026-01-20T16:19:04.750222Z","level":"info","event":"DAG bundles loaded: dags-folder","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
+{"timestamp":"2026-01-20T16:19:04.750576Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/redit_dag.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-01-20T16:19:04.809371Z","level":"warning","event":"The `airflow.operators.python.PythonOperator` attribute is deprecated. Please use `'airflow.providers.standard.operators.python.PythonOperator'`.","category":"DeprecatedImportWarning","filename":"/opt/airflow/dags/redit_dag.py","lineno":5,"logger":"py.warnings"}
+{"timestamp":"2026-01-20T16:19:04.867771Z","level":"info","event":"Required configuration setting 'client_id' missing.","logger":"task.stdout"}
+{"timestamp":"2026-01-20T16:19:04.867917Z","level":"info","event":"This setting can be provided in a praw.ini file, as a keyword argument to the Reddit class constructor, or as an environment variable.","logger":"task.stdout"}
+{"timestamp":"2026-01-20T16:19:04.867546Z","level":"error","event":"Task exited","exit_code":1,"logger":"task","filename":"task_runner.py","lineno":1004}

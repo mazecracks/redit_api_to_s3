@@ -1,0 +1,6 @@
+{"timestamp":"2026-01-21T12:12:53.845041Z","level":"info","event":"DAG bundles loaded: dags-folder","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
+{"timestamp":"2026-01-21T12:12:53.845390Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/redit_dag.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-01-21T12:12:54.062993Z","level":"warning","event":"The `airflow.operators.python.PythonOperator` attribute is deprecated. Please use `'airflow.providers.standard.operators.python.PythonOperator'`.","category":"DeprecatedImportWarning","filename":"/opt/airflow/dags/redit_dag.py","lineno":5,"logger":"py.warnings"}
+{"timestamp":"2026-01-21T12:12:54.350142Z","level":"info","event":"Bucket already exists","logger":"task.stdout"}
+{"timestamp":"2026-01-21T12:12:54.489821Z","level":"info","event":"File uploaded to s3","logger":"task.stdout"}
+{"timestamp":"2026-01-21T12:12:54.490534Z","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator","filename":"python.py","lineno":217}
