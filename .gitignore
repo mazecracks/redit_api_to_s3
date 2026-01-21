@@ -22,7 +22,9 @@ webserver_config.py
 .idea/
 
 # ---- Secrets / Config ----
+config/
 config.conf
+airflow.cfg
 *.env
 
 # ---- Data / Outputs ----
