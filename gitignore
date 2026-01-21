@@ -1,0 +1,36 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# ---- Virtual environments ----
+venv/
+.env/
+.env.*
+.venv/
+
+# ---- Airflow ----
+logs/
+airflow.cfg
+airflow.db
+webserver_config.py
+
+# ---- OS / Editor ----
+.DS_Store
+.vscode/
+.idea/
+
+# ---- Secrets / Config ----
+config.conf
+*.env
+
+# ---- Data / Outputs ----
+data/
+output/
+input/
+*.csv
+*.parquet
+
+# ---- Jupyter ----
+.ipynb_checkpoints/
